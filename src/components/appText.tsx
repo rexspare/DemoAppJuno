@@ -8,10 +8,11 @@ export interface IAppTextProps extends TextProps {
   light?: boolean;
   medium?: boolean;
   fontSize?: number;
-  style?: TextStyle;
+  style?: TextStyle | TextStyle[];
 }
 
 const AppText: FC<IAppTextProps> = (props) => {
+
   const fontWeight = React.useMemo(() => {
     if (!!props.bold) {
       return '700'
@@ -25,6 +26,7 @@ const AppText: FC<IAppTextProps> = (props) => {
 
     return '400'
   }, []);
+
 
   return <Text allowFontScaling={false} {...props} style={[{ fontSize: props.fontSize, fontWeight, color: COLORS.TEXT }, props.style,]} />
 }

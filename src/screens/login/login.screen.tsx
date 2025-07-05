@@ -1,12 +1,12 @@
-import { View, Text, Image } from 'react-native'
+import { NavigationProp, useNavigation } from '@react-navigation/native'
 import React, { FC, useState } from 'react'
-import { AppHeader, Layout, PrimaryButton, PrimaryInput, Spacer } from '../../components'
-import styles from './login.styles'
+import { Image } from 'react-native'
 import IMAGES from '../../assets/images'
-import { validateEmail } from '../../utils'
-import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { AppHeader, Layout, PrimaryButton, PrimaryInput } from '../../components'
 import { InitialNavigationStackParamList } from '../../navigation/root'
 import { ROUTES } from '../../navigation/routes'
+import { validateEmail } from '../../utils'
+import styles from './login.styles'
 
 const LoginScreen: FC = () => {
     const navigation = useNavigation<NavigationProp<InitialNavigationStackParamList>>();

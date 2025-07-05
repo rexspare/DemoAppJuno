@@ -20,7 +20,7 @@ const Root = () => {
                 animationDuration: 250
             }}>
 
-                <Stack.Screen name={ROUTES.LOGIN} component={LoginScreen} />
+                {/* <Stack.Screen name={ROUTES.LOGIN} component={LoginScreen} /> */}
                 <Stack.Screen name={ROUTES.HOME} component={HomeScreen} />
                 <Stack.Screen name={ROUTES.DETAIL} component={DetailScreen} />
 

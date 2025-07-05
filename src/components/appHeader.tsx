@@ -34,7 +34,7 @@ const AppHeader: FC<IAppHeaderProps> = (props) => {
             )}
 
             <If condition={title}>
-                <AppText semiBold={true} style={styles.title}>{title}</AppText>
+                <AppText semiBold={true} style={styles.title} numberOfLines={1}>{title}</AppText>
             </If>
 
             {/* Empty View to balance layout if no right button is present */}

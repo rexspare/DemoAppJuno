@@ -1,5 +1,7 @@
 import StoreItem from "./storeItem";
+import ImageSlideItem from "./imageSlideItem";
 
 export {
-    StoreItem
+    StoreItem,
+    ImageSlideItem
 }

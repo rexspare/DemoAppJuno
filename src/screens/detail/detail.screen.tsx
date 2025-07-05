@@ -1,25 +1,13 @@
-import React, { FC, useRef, useState } from 'react';
-import { FlatList, ImageBackground, View } from 'react-native';
-import { useSelector } from 'react-redux';
-import { SIZE } from '../../assets/styleGuide';
-import { AppHeader, Layout } from '../../components';
+import React, { FC, useEffect, useRef, useState } from 'react'
+import { ActivityIndicator, FlatList, ImageBackground, Text, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchItems, setSelectedItem } from '../../redux/itemsSlice'
+import { COLORS, hp, SIZE } from '../../assets/styleGuide';
+import { AppHeader, AppText, ImageSlideItem, Layout, StoreItem } from '../../components';
 import { ProductItem } from '../../models';
 import styles from './detail.styles';
 
 
-const Slide: FC<{ item: string }> = ({ item }) => {
-
-    return (
-        <View style={styles.item}>
-            <ImageBackground
-                source={{ uri: item }}
-                style={styles.slideImg}
-            >
-
-            </ImageBackground>
-        </View>
-    );
-};
 
 const DetailScreen: FC = () => {
     const selectedItem = useSelector((state: any) => state.items.selectedItem) as ProductItem;
@@ -32,8 +20,6 @@ const DetailScreen: FC = () => {
         setCurrentSlideIndex(currentIndex);
     };
 
-
-
     return (
         <Layout fixed={true}>
 
@@ -42,16 +28,27 @@ const DetailScreen: FC = () => {
                 showBackIcon={true}
             />
 
-            <FlatList
-                ref={ref}
-                onScroll={updateCurrentSlideIndex}
-                scrollEventThrottle={16}
-                showsHorizontalScrollIndicator={false}
-                horizontal
-                data={selectedItem.images}
-                pagingEnabled
-                renderItem={({ item }) => <Slide item={item} />}
-            />
+            <Layout>
+                <FlatList
+                    ref={ref}
+                    onScroll={updateCurrentSlideIndex}
+                    scrollEventThrottle={16}
+                    showsHorizontalScrollIndicator={false}
+                    horizontal
+                    data={selectedItem.images}
+                    pagingEnabled
+                    renderItem={({ item }) => <ImageSlideItem item={item} totalSlides={selectedItem.images.length} currentSlide={currentSlideIndex} />}
+                />
+
+                <Layout fixed={true} containerStyle={styles.context}>
+                    <AppText style={styles.title}>{selectedItem.title}</AppText>
+                    <AppText style={styles.price}>${selectedItem.price}</AppText>
+                    <AppText style={styles.category}>Category: {selectedItem.category.name}</AppText>
+                    <AppText style={styles.description}>{selectedItem.description}</AppText>
+
+                </Layout>
+
+            </Layout>
 
         </Layout>
     )

@@ -15,5 +15,5 @@ export {
     Spacer,
     AppHeader,
     PrimaryButton,
-    PrimaryInput
+    PrimaryInput,
 }

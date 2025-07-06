@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.BACKGROUND,
     },
     btn: {
-        minWidth: hp(3.4),
-        minHeight: hp(3.4),
+        minWidth: hp(3.9),
+        minHeight: hp(3.9),
         justifyContent: "center",
         alignItems: 'center',
     },

@@ -20,6 +20,7 @@ const StoreItem: FC<storeItemProps> = (props) => {
 
     return (
         <TouchableOpacity
+            testID="store-item-touchable"
             activeOpacity={0.8}
             onPress={() => {
                 dispatch(setSelectedItem(item));

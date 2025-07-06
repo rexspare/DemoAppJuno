@@ -2,7 +2,7 @@ import { NavigationProp, useNavigation } from '@react-navigation/native'
 import React, { FC, useState } from 'react'
 import { Image } from 'react-native'
 import IMAGES from '../../assets/images'
-import { AppHeader, Layout, PrimaryButton, PrimaryInput } from '../../components'
+import { AppHeader, AppText, Layout, PrimaryButton, PrimaryInput } from '../../components'
 import { InitialNavigationStackParamList } from '../../navigation/root'
 import { ROUTES } from '../../navigation/routes'
 import { validateEmail } from '../../utils'
@@ -27,6 +27,8 @@ const LoginScreen: FC = () => {
                     source={IMAGES.appLogo}
                     style={styles.img}
                 />
+
+                <AppText>* Input any valid Email and a password</AppText>
 
                 <PrimaryInput
                     title="Email"
